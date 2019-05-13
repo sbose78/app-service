@@ -24,10 +24,15 @@
 #   go-tests = true
 #   unused-packages = true
 
+required = [
+  "github.com/openshift/client-go/apps/clientset/versioned/typed/apps/v1",
+  "k8s.io/apimachinery/pkg/apis/meta/v1",
+  "k8s.io/client-go/tools/clientcmd"
+]
 
 [[constraint]]
   name = "github.com/pkg/errors"
-  version = "0.8.1"
+  version = "0.8.0"
 
 [[constraint]]
   name = "github.com/satori/go.uuid"
@@ -60,6 +65,29 @@
 [[override]]
   name = "github.com/golangci/golangci-lint"
   version = "1.15.0"
+
+[[constraint]]
+  name = "github.com/openshift/client-go"
+  branch = "rebase-1.13.4"
+
+[[constraint]]
+  name = "github.com/openshift/api"
+  branch = "rebase-1.13.4"
+
+[[override]]
+  name = "k8s.io/apimachinery"
+  # revision for tag "kubernetes-1.13.1"
+  revision = "2b1284ed4c93a43499e781493253e2ac5959c4fd"
+
+[[override]]
+  name = "k8s.io/client-go"
+  # revision for tag "kubernetes-1.13.1"
+  revision = "8d9ed539ba3134352c586810e749e58df4e94e4f"
+
+[[override]]
+  name = "k8s.io/api"
+  # revision for tag "kubernetes-1.13.1"
+  revision = "05914d821849570fba9eacfb29466f2d8d3cd229"
 
 [prune]
   go-tests = true
